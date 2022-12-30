@@ -1,0 +1,24 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "AndroidNativo"
+include ':app'
+// Include the host app project.
+include ':modflutter_1'                                    // assumed existing content
+setBinding(new Binding([gradle: this]))                                // new
+evaluate(new File(                                                     // new
+        settingsDir,                                              // new
+        'modflutter_1/.android/include_flutter.groovy'                         // new
+))                                                                     // new
+
